@@ -1,6 +1,6 @@
 <?php
 
-class User extends Session
+class User
 {
     private $id;
     private $nama;

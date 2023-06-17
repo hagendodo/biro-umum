@@ -1,6 +1,6 @@
 <?php
 
-class Authentication
+class Authentication extends Session
 {
     public function login(User $user)
     {
@@ -10,5 +10,10 @@ class Authentication
     public function register(User $user)
     {
 
+    }
+
+    public function roleCheck($role): void
+    {
+        echo '<script>window.history.back();</script>';
     }
 }
