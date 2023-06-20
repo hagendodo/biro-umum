@@ -63,7 +63,7 @@ class Monitor{
     }
     public function update(Monitor $monitor, $id): void
     {
-        $query = "UPDATE monitors SET nama_kegiatan = '$monitor->namaKegiatan', status = '$monitor->status', deadline = '$monitor->deadline', status = '$monitor->status', deskripsi = '$monitor->deskripsi' WHERE id = '$id'";
+        $query = "UPDATE monitors SET nama_kegiatan = '$monitor->namaKegiatan', status = '$monitor->status', deadline = '$monitor->deadline', deskripsi = '$monitor->deskripsi' WHERE id = '$id'";
         mysqli_query(Connection::getConnection(),$query);
 
         header('Location: ');
