@@ -7,10 +7,10 @@
     <div class="row p-3" style="min-height: 500px;">
         <div class="col-12 p-0 mr-0">
             <div class="list-group pr-0 mr-0 list-group-flush" style="margin-right: 0; padding-right: 0;">
-                <a href="#" class="list-group-item list-group-item-action" style="background-color: #fff;color: #000;"><i class="fas fa-chart-bar"></i> Monitoring</a>
-                <a href="#" class="list-group-item list-group-item-action" style="background-color: #cadee0;color: #000;"><i class="fas fa-archive"></i> Data Asset</a>
-                <a href="#" class="list-group-item list-group-item-action" style="background-color: #cadee0;color: #000;"><i class="fas fa-file-invoice"></i> List Asset</a>
-                <a href="#" class="list-group-item list-group-item-action" style="background-color: #cadee0;color: #000;"><i class="fas fa-envelope"></i> Kritik & Saran</a>
+                <a href="../monitoring/index.php" class="list-group-item list-group-item-action" style="background-color: #fff;color: #000;"><i class="fas fa-chart-bar"></i> Monitoring</a>
+                <a href="../asset/index.php" class="list-group-item list-group-item-action" style="background-color: #cadee0;color: #000;"><i class="fas fa-archive"></i> Data Asset</a>
+                <a href="../asset/list.php" class="list-group-item list-group-item-action" style="background-color: #cadee0;color: #000;"><i class="fas fa-file-invoice"></i> List Asset</a>
+                <a href="../kritik-saran/index.php" class="list-group-item list-group-item-action" style="background-color: #cadee0;color: #000;"><i class="fas fa-envelope"></i> Kritik & Saran</a>
             </div>
         </div>
     </div>
