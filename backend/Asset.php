@@ -3,7 +3,7 @@
 class Asset{
     private $id;
     private $kodeBarang;
-    private $NamaBarang;
+    private $namaBarang;
     private $jumlah;
     private $status;
     private $pjAsset;
@@ -51,7 +51,7 @@ class Asset{
 
     public function create(Asset $asset): void
     {
-        $query = "INSERT INTO assets VALUES('', '$asset->kodeBarang', '$asset->NamaBarang', '$asset->jumlah', '$asset->status')";
+        $query = "INSERT INTO assets VALUES('', '$asset->kodeBarang', '$asset->namaBarang', '$asset->jumlah', '$asset->status')";
         mysqli_query(Connection::getConnection(),$query);
         $asset->id = mysqli_insert_id(Connection::getConnection());
 
@@ -67,7 +67,7 @@ class Asset{
 
     public function update(Asset $asset, $id): void
     {
-        $query = "UPDATE assets SET kode_barang = '$asset->kodeBarang', nama_barang = '$asset->NamaBarang', jumlah = '$asset->jumlah', status = '$asset->status WHERE id = '$id'";
+        $query = "UPDATE assets SET kode_barang = '$asset->kodeBarang', nama_barang = '$asset->namaBarang', jumlah = '$asset->jumlah', status = '$asset->status WHERE id = '$id'";
         mysqli_query(Connection::getConnection(),$query);
 
         header('Location: ');
