@@ -24,6 +24,7 @@ class Monitor{
 
         return $pjMonitors;
     }
+    
     public function getAll(): array
     {
         $monitors = array();
@@ -47,7 +48,7 @@ class Monitor{
     }
     public function create(Monitor $monitor): void
     {
-        $query = "INSERT INTO monitors VALUES('', '$monitor->namaKegiatan', '$monitor->status', '$monitor->deadline', '$monitor->status', '$monitor->deskripsi')";
+        $query = "INSERT INTO monitors VALUES('', '$monitor->namaKegiatan', '$monitor->status', '$monitor->deadline', '$monitor->deskripsi')";
         mysqli_query(Connection::getConnection(),$query);
         $monitor->id = mysqli_insert_id(Connection::getConnection());
 
