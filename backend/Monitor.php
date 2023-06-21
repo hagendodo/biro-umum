@@ -20,7 +20,6 @@ class Monitor{
         $this->deskripsi = $deskripsi;
     }
 
-
     private function createPjMonitor(PjMonitor $pjMonitor): void
     {
         $query = "INSERT INTO pj_monitors VALUES('', '$pjMonitor->monitors_id', $pjMonitor->users_id)";
