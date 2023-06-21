@@ -1,5 +1,6 @@
+<?php include "../auth/loginCheck.php"; ?>
 <?php
-
+$PAGE = 'asset';
 include_once "../../backend/Asset.php";
 
 

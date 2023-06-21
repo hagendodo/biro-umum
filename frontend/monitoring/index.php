@@ -1,4 +1,8 @@
+<?php include "../auth/loginCheck.php"; ?>
+
 <?php
+
+$PAGE = 'monitor';
 
 include_once "../../backend/Monitor.php";
 

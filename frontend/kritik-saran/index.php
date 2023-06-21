@@ -1,3 +1,4 @@
+<?php include "../auth/loginCheck.php"; ?>
 <?php
 
 include_once "../../backend/Session.php";

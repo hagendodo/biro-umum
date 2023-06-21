@@ -1,4 +1,7 @@
-<?php include_once "../../backend/Asset.php"; ?>
+<?php include "../auth/loginCheck.php"; ?>
+<?php
+$PAGE = 'list';
+include_once "../../backend/Asset.php"; ?>
 <?php include('../layouts/head.php'); ?>
 <?php include('../layouts/menu.php'); ?>
 <div class="col-lg-10 col-md-9 col-sm-6">

@@ -8,11 +8,6 @@ class Feedback{
     public $rating;
     public $pesan;
 
-    /**
-     * @param $userId
-     * @param $rating
-     * @param $pesan
-     */
     public function __construct($userId = null, $rating = null, $pesan = null)
     {
         $this->userId = $userId;

@@ -1,4 +1,7 @@
+<?php include "../auth/loginCheck.php"; ?>
 <?php
+
+$PAGE = 'feedback';
 
 include_once "../../backend/Feedback.php";
 

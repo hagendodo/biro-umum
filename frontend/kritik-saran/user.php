@@ -1,4 +1,7 @@
+<?php include "../auth/loginCheck.php"; ?>
 <?php
+
+$PAGE = 'feedback';
 
 include_once "../../backend/Feedback.php";
 
@@ -26,7 +29,13 @@ if(isset($_POST['tambah'])){
         <div class="row px-5 pb-5 pt-3">
             <div class="col-12">
                 <form method="POST" action="">
-                    <input type="number" name="userId" value="<?php $_SESSION['id'] ?>" hidden="true">
+                    <?php
+                    if (session_status() === PHP_SESSION_NONE) {
+                        session_start();
+                    }
+
+                    ?>
+                    <input type="number" name="userId" value="<?php echo $_SESSION['id']; ?>" hidden="true">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="rating" id="star1" value="1">
                         <label class="form-check-label" for="star1"><i class="fas fa-star"></i></label>
