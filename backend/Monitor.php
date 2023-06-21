@@ -1,5 +1,8 @@
 <?php
 
+include_once 'Connection.php';
+include_once 'PjMonitor.php';
+
 class Monitor{
     private $id;
     private $namaKegiatan;
@@ -7,6 +10,16 @@ class Monitor{
     private $status;
     private $deadline;
     private $deskripsi;
+
+    public function __construct($namaKegiatan = null, $pjMonitor = null, $status = null, $deadline = null, $deskripsi = null)
+    {
+        $this->namaKegiatan = $namaKegiatan;
+        $this->pjMonitor = $pjMonitor;
+        $this->status = $status;
+        $this->deadline = $deadline;
+        $this->deskripsi = $deskripsi;
+    }
+
 
     private function createPjMonitor(PjMonitor $pjMonitor): void
     {
@@ -16,7 +29,7 @@ class Monitor{
     private function getPjMonitor($monitorId): array
     {
         $pjMonitors = array();
-        $query = "SELECT * FROM pj_monitors WHERE monitors_id='$monitorId'";
+        $query = "SELECT * FROM pj_monitors JOIN users ON users_id = users.id WHERE monitors_id='$monitorId'";
         $pjMonitors_query_result = mysqli_query(Connection::getConnection(),$query);
         while($pjMonitor = mysqli_fetch_assoc($pjMonitors_query_result)){
             $pjMonitors[] = $pjMonitor;
@@ -50,29 +63,32 @@ class Monitor{
     {
         $query = "INSERT INTO monitors VALUES('', '$monitor->namaKegiatan', '$monitor->status', '$monitor->deadline', '$monitor->deskripsi')";
         mysqli_query(Connection::getConnection(),$query);
-        $monitor->id = mysqli_insert_id(Connection::getConnection());
+        $monitor->id = mysqli_fetch_assoc(mysqli_query(Connection::getConnection(),"SELECT id FROM monitors ORDER BY id DESC LIMIT 1"))['id'];
 
         foreach($monitor->pjMonitor as $pj){
             $pjMonitor = new PjMonitor();
             $pjMonitor->monitors_id = $monitor->id;
-            $pjMonitor->users_id = $pj[1];
+            $pjMonitor->users_id = $pj[0];
             $monitor->createPjMonitor($pjMonitor);
         }
 
-        header('Location: ');
+        echo "<script>alert('Berhasil Tambah Data')</script>";
+
     }
     public function update(Monitor $monitor, $id): void
     {
         $query = "UPDATE monitors SET nama_kegiatan = '$monitor->namaKegiatan', status = '$monitor->status', deadline = '$monitor->deadline', deskripsi = '$monitor->deskripsi' WHERE id = '$id'";
         mysqli_query(Connection::getConnection(),$query);
 
-        header('Location: ');
+        echo "<script>alert('Berhasil Edit Data')</script>";
+
     }
     public function delete($id): void
     {
         $query = "DELETE FROM monitors WHERE id = '$id'";
         mysqli_query(Connection::getConnection(),$query);
 
-        header('Location: ');
+        echo "<script>alert('Berhasil Hapus Data')</script>";
+
     }
 }

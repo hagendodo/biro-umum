@@ -1,3 +1,31 @@
+<?php
+
+include_once "../../backend/Asset.php.php";
+
+
+if(isset($_POST['tambah'])){
+    $asset = new Asset(
+        $_POST['namaKegiatan'],
+        $_POST['pj'],
+        $_POST['status'],
+        $_POST['deadline'],
+        $_POST['deskripsi']
+    );
+    $asset->create($asset);
+}else if(isset($_POST['edit'])){
+    $monitor = new Monitor(
+        $_POST['namaKegiatan'],
+        $_POST['pj'],
+        $_POST['status'],
+        $_POST['deadline'],
+        $_POST['deskripsi']
+    );
+    $monitor->update($monitor, $_POST['id']);
+}else if(isset($_POST['delete'])){
+    $monitor = new Monitor();
+    $monitor->delete($_POST['id']);
+}
+?>
 <?php include('../layouts/head.php'); ?>
 <?php include('../layouts/menu.php'); ?>
 <div class="col-lg-10 col-md-9 col-sm-6">
