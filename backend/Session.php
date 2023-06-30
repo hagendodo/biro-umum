@@ -29,4 +29,18 @@ class Session
 
         return isset($_SESSION['isLoggedIn']);
     }
+
+    public function isAdmin(): bool
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if($_SESSION['role'] == "admin")
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -123,7 +123,12 @@ if(isset($_POST['tambah'])){
                                 <th scope="col">Status</th>
                                 <th scope="col">Deadline</th>
                                 <th scope="col">Deskripsi</th>
-                                <th scope="col">Aksi</th>
+                                <?php
+                                if($session->isAdmin()){
+                                    echo '<th scope="col">Aksi</th>';
+                                }
+
+                                ?>
                             </tr>
                             </thead>
                             <tbody>
@@ -148,7 +153,20 @@ if(isset($_POST['tambah'])){
                                     </ul>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-warning"><?php echo $monitor['status']; ?></button>
+                                    <?php
+                                    $status = $monitor['status'];
+                                    $btnClass = '';
+
+                                    if ($status == 'proses') {
+                                        $btnClass = 'btn-warning';
+                                    } elseif ($status == 'selesai') {
+                                        $btnClass = 'btn-success';
+                                    } elseif ($status == 'batal') {
+                                        $btnClass = 'btn-danger';
+                                    }
+                                    ?>
+
+                                    <button type="button" class="btn btn-sm <?php echo $btnClass; ?>"><?php echo $monitor['status']; ?></button>
                                 </td>
                                 <td>
                                     <?php echo $monitor['deadline']; ?>
@@ -156,7 +174,13 @@ if(isset($_POST['tambah'])){
                                 <td class="text-left">
                                     <?php echo $monitor['deskripsi']; ?>
                                 </td>
-                                <td>
+                                <td <?php
+
+                                if(!$session->isAdmin()){
+                                    echo 'class="d-none"';
+                                }
+
+                                ?>>
                                     <div class="row">
                                         <div class="col-6 d-flex justify-content-end">
                                             <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit" style="background-color: #f5f0bd; border-color: #f5f0bd;"><i class="fas fa-edit"></i></button>
@@ -173,17 +197,6 @@ if(isset($_POST['tambah'])){
                                                                 <div class="form-group mb-2">
                                                                     <label for="namaKegiatan">Nama Kegiatan</label>
                                                                     <input name="namaKegiatan" type="text" class="form-control" id="namaKegiatan" placeholder="Nama Kegiatan" value="<?php echo $monitor['nama_kegiatan']; ?>">
-                                                                </div>
-
-                                                                <div class="form-group mb-2">
-                                                                    <label for="pj">Penanggung Jawab</label>
-                                                                    <select name="pj" class="form-control" id="pj">
-                                                                        <option readonly hidden>Pilih Penanggung Jawab</option>
-                                                                        <option value="1">Biro A</option>
-                                                                        <option value="2">Biro B</option>
-                                                                        <option value="3">Biro C</option>
-                                                                        <option value="4">Biro D</option>
-                                                                    </select>
                                                                 </div>
 
                                                                 <div class="form-group mb-2">

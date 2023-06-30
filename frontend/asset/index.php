@@ -111,7 +111,12 @@ if(isset($_POST['tambah'])){
                             <th scope="col">Nama Barang</th>
                             <th scope="col">PJ</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Aksi</th>
+                            <?php
+                            if($session->isAdmin()){
+                                echo '<th scope="col">Aksi</th>';
+                            }
+
+                            ?>
                         </tr>
                         </thead>
                         <tbody>
@@ -139,7 +144,13 @@ if(isset($_POST['tambah'])){
                             <td>
                                 <button type="button" class="btn btn-sm btn-<?php echo $asset['status'] == 'tersedia'?'success':'danger'; ?>"><?php echo $asset['status']; ?></button>
                             </td>
-                            <td>
+                            <td <?php
+
+                            if(!$session->isAdmin()){
+                                echo 'class="d-none"';
+                            }
+
+                            ?>>
                                 <div class="row">
                                     <div class="col-6 d-flex justify-content-end">
                                     <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit" style="background-color: #f5f0bd; border-color: #f5f0bd;"><i class="fas fa-edit"></i></button>
@@ -155,17 +166,6 @@ if(isset($_POST['tambah'])){
                                                             <div class="form-group mb-2">
                                                                 <label for="namaBarang">Nama Barang</label>
                                                                 <input name="namaBarang" type="text" class="form-control" id="namaBarang" placeholder="Nama Barang" value="<?php echo $asset['nama_barang']; ?>">
-                                                            </div>
-
-                                                            <div class="form-group mb-2">
-                                                                <label for="pj">Penanggung Jawab</label>
-                                                                <select class="form-control" id="pj">
-                                                                    <option readonly hidden>Pilih Penanggung Jawab</option>
-                                                                    <option value="pj1">Biro A</option>
-                                                                    <option value="pj2">Biro B</option>
-                                                                    <option value="pj3">Biro C</option>
-                                                                    <option value="pj3">Biro D</option>
-                                                                </select>
                                                             </div>
 
                                                             <div class="form-group mb-2">

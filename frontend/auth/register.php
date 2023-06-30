@@ -42,27 +42,8 @@ if(isset($_POST['register'])){
         <h1>Pengadaan Biro</h1>
         <div class="navbar-nav">
             <a href="#">Home</a>
-            <a href="#informasi" id="informasi-link">Informasi</a>
         </div>
     </nav>
-    <div class="information-overlay" id="information-overlay">
-        <div class="information">
-            <p>Biro Organisasi didukung oleh tiga bagian yaitu Bagian Kelembagaan dan Analisis Jabatan,
-                Bagian Reformasi
-                Birokrasi dan Akuntablitas Kinerja, serta Bagian Tata Laksana. Masing-masing
-                bagian terdiri dari 3 sub
-                bagian yang mendukung dalam kinerja di bidang tersebut.
-                Sebagai wujud transaparansi informasi dalam menuju reformasi birokrasi,
-                Biro Organisasi menyajikan
-                berbagai layanan informasi baik terkait dengan kegiatan sehari-hari maupun layanan lain yang terkait
-                dengan informasi pelayanan publik.
-                Tugas dan tanggung jawab sebagai penyebar informasi layanan publik, Biro Organisasi secara bertahap
-                (step by step) akan melengkapi kebutuhan publik terkait informasi pelayanan. </p>
-            <button id="information-closebtn">
-                <span>tutup</span>
-            </button>
-        </div>
-    </div>
 
     <div class="container">
         <div class="image-regis">

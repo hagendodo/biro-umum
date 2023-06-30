@@ -50,65 +50,6 @@ include_once "../../backend/Asset.php"; ?>
                     <td>
                         <button type="button" class="btn btn-sm btn-<?php echo $asset['status'] == 'tersedia'?'success':'danger'; ?>"><?php echo $asset['status']; ?></button>
                     </td>
-                    <td>
-                        <div class="row">
-                            <div class="col-6 d-flex justify-content-end">
-                                <button type="button" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit" style="background-color: #f5f0bd; border-color: #f5f0bd;"><i class="fas fa-edit"></i></button>
-                                <div class="modal" id="modalEdit"  style="text-align: left;">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Edit Data</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" action="">
-                                                    <div class="form-group mb-2">
-                                                        <label for="namaBarang">Nama Barang</label>
-                                                        <input name="namaBarang" type="text" class="form-control" id="namaBarang" placeholder="Nama Barang" value="<?php echo $asset['nama_barang']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group mb-2">
-                                                        <label for="pj">Penanggung Jawab</label>
-                                                        <select class="form-control" id="pj">
-                                                            <option readonly hidden>Pilih Penanggung Jawab</option>
-                                                            <option value="pj1">Biro A</option>
-                                                            <option value="pj2">Biro B</option>
-                                                            <option value="pj3">Biro C</option>
-                                                            <option value="pj3">Biro D</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="form-group mb-2">
-                                                        <label for="jumlahBarang">Jumlah</label>
-                                                        <input name="jumlah" type="number" class="form-control" id="jumlahBarang" placeholder="Jumlah Barang" value="<?php echo $asset['nama_barang']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group mb-2">
-                                                        <label for="status">Status</label>
-                                                        <select name="status" class="form-control" id="status">
-                                                            <option readonly hidden>Pilih Status</option>
-                                                            <option value="tersedia">Tersedia</option>
-                                                            <option value="kosong">Kosong</option>
-                                                        </select>
-                                                    </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button name="edit" type="submit" class="btn text-white" style="background-color: #73a9ad; border-color: #73a9ad;"><i class="fas fa-save"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 d-flex justify-content-start">
-                                <form method="POST" action="">
-                                    <input type="number" name="id" value="<?php echo $asset['id']; ?>" hidden="true">
-                                    <button name="delete" type="submit" class="btn btn-sm" style="background-color: #f5f0bd; border-color: #f5f0bd;"><i class="fas fa-trash"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </td>
                 </tr>
                 <?php
                 }
